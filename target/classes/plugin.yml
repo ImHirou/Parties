@@ -1,0 +1,11 @@
+name: Parties
+version: '1.0'
+main: me.secretlovers.parties.Main
+api-version: '1.16'
+
+commands:
+  party:
+    description: party commands
+    usage: /party
+    aliases:
+      - p

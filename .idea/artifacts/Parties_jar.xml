@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Parties:jar">
+    <output-path>$USER_HOME$/Desktop/server/plugins</output-path>
+    <root id="archive" name="Parties.jar">
+      <element id="module-output" name="Parties" />
+    </root>
+  </artifact>
+</component>
