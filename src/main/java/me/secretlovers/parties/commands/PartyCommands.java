@@ -129,6 +129,28 @@ public class PartyCommands implements CommandExecutor {
             PartyCommandUtils.PartyChat(player, playerParty, message);
 
         }
+        else if (args[0].equals("kick")) {
+            if(playerParty == null) {
+                player.sendMessage(ChatColor.RED + "You're not in a party");
+                return true;
+            }
+            if(playerParty.getLeader() != player) {
+                player.sendMessage(ChatColor.YELLOW + "You're " + ChatColor.RED + "NOT " + ChatColor.YELLOW + "a leader of a party");
+                return true;
+            }
+            Player target = Bukkit.getPlayer(args[1]);
+            if(target == null) {
+                player.sendMessage(ChatColor.RED + "Player offline");
+                return true;
+            }
+            if(!(playerParty.getPlayers().contains(target))) {
+                player.sendMessage(ChatColor.RED + "Player not in your party");
+                return true;
+            }
+            PartyCommandUtils.PartyLeave(target, playerParty);
+            player.sendMessage(ChatColor.RED + "You kicked " + ChatColor.AQUA + target.getDisplayName());
+            target.sendMessage(ChatColor.DARK_PURPLE + "You got kicked from the party");
+        }
 
 
 
